@@ -16,6 +16,8 @@ namespace TI1
 
                 if (int.TryParse(choice, out choiceNum))
                 {
+                    Console.WriteLine();
+                    
                     switch (choiceNum)
                     {
                     case 1:
