@@ -9,6 +9,7 @@ namespace TI1
             {
                 Console.WriteLine("Choose the encryption method:");
                 Console.WriteLine("1) Railroad cypher");
+                Console.WriteLine("2) Column cipher");
                 Console.WriteLine("4) Playfair cipher");
 
                 string choice = Console.ReadLine();
@@ -23,6 +24,10 @@ namespace TI1
                     case 1:
                         Rail.Switch();
                         break;
+                    case 2:
+                        Column.Switch();
+                        break;
+
                     default:
                         Console.WriteLine("No such number");
                         break;
