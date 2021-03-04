@@ -67,12 +67,8 @@ namespace TI1
             int messageInd = 0;
 
             for (int i = 0; i < columns.Length; ++i)
-                for (int j = columns[i]; j < message.Length; j += key.Length)
-                {
+                for (int j = columns[i]; j < message.Length; j += key.Length, ++messageInd)
                     res[j] = message[messageInd];
-
-                    ++messageInd;
-                }
 
             return res.ToString();
         }
