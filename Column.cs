@@ -71,7 +71,6 @@ namespace TI1
                 {
                     res[j] = message[messageInd];
 
-                    j += key.Length;
                     ++messageInd;
                 }
 
