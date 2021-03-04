@@ -39,15 +39,15 @@ namespace TI1
         private static string Encode(string message, string key)
         {
             // Get the relative sorted indices of each char
-            int[] clmns = key.Select((c, i) => (c, i))
-                             .OrderBy(entry => entry.c)
-                             .Select(entry => entry.i)
-                             .ToArray();
+            int[] columns = key.Select((c, i) => (c, i))
+                               .OrderBy(entry => entry.c)
+                               .Select(entry => entry.i)
+                               .ToArray();
 
             var res = new StringBuilder();
 
-            for (int i = 0; i < clmns.Length; ++i)
-                for (int j = clmns[i]; j < message.Length; j += key.Length)
+            for (int i = 0; i < columns.Length; ++i)
+                for (int j = columns[i]; j < message.Length; j += key.Length)
                     res.Append(message[j]);
 
             return res.ToString();
@@ -55,8 +55,27 @@ namespace TI1
 
         private static string Decode(string message, string key)
         {
+            // Get the relative sorted indices of each char
+            int[] columns = key.Select((c, i) => (c, i))
+                               .OrderBy(entry => entry.c)
+                               .Select(entry => entry.i)
+                               .ToArray();
 
-            return string.Empty;
+            var res = new StringBuilder();
+            res.Length = message.Length;
+
+            int messageInd = 0;
+
+            for (int i = 0; i < columns.Length; ++i)
+                for (int j = columns[i]; j < message.Length; j += key.Length)
+                {
+                    res[j] = message[messageInd];
+
+                    j += key.Length;
+                    ++messageInd;
+                }
+
+            return res.ToString();
         }
     }
 }
