@@ -27,7 +27,7 @@ namespace TI1
             case 2:
                 Console.WriteLine("Enter the message to decode:");
                 string s2 = Console.ReadLine();
-                
+                Console.WriteLine(Decode(s2, key));
                 break;
 
             default:
@@ -40,11 +40,21 @@ namespace TI1
         {
             // Get the relative sorted indices of each char
             int[] clmns = key.Select((c, i) => (c, i))
-                           .OrderBy(entry => entry.c)
-                           .Select(entry => entry.i)
-                           .ToArray();
+                             .OrderBy(entry => entry.c)
+                             .Select(entry => entry.i)
+                             .ToArray();
 
-            
+            var res = new StringBuilder();
+
+            for (int i = 0; i < clmns.Length; ++i)
+                for (int j = clmns[i]; j < message.Length; j += key.Length)
+                    res.Append(message[j]);
+
+            return res.ToString();
+        }
+
+        private static string Decode(string message, string key)
+        {
 
             return string.Empty;
         }
