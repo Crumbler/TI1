@@ -8,7 +8,7 @@ namespace TI1
     {
         public static void Switch()
         {
-            Console.Write("Enter the depth:");
+            Console.Write("Enter the depth: ");
             int depth = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Enter 1 to encode");
