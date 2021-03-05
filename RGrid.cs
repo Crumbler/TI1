@@ -35,14 +35,7 @@ namespace TI1
             switch (command)
             {
             case 1:
-                try
-                {
-                    Console.WriteLine(Encode(msg, sNums, rCount, depth));
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
+                Console.WriteLine(Encode(msg, sNums, rCount, depth));
                 break;
 
             case 2:
@@ -189,9 +182,8 @@ namespace TI1
 
             int maxChar = message.Length;
 
-            // If the side length is odd, the center element is set separately
+            // If the side length is odd, the center element is acquired separately
             bool hasExtra = maxChar == depth * depth && depth % 2 == 1;
-            // If the side length is odd, the center element is set separately
             if (hasExtra)
                 --maxChar;
 
@@ -207,7 +199,7 @@ namespace TI1
                 res.Append(M[pos.Item2, pos.Item1]);
             }
 
-            // If the side length is odd, set the center element separately
+            // If the side length is odd, get the center element separately
             if (hasExtra)
                 res.Append(M[depth / 2, depth / 2]);
 
