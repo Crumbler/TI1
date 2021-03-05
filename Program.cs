@@ -34,6 +34,10 @@ namespace TI1
                         RGrid.Switch();
                         break;
 
+                    case 4:
+                        Playfair.Switch();
+                        break;
+
                     default:
                         Console.WriteLine("No such number");
                         break;
